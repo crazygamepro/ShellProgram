@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package edu.frostburg.cosc460.PlentyMikhelShell;
 
 import java.io.BufferedReader;
@@ -55,20 +54,3 @@ public class Main {
 
 
 }
-=======
-package edu.frostburg.cosc460.PlentyMikhelShell;
-
-
-
-public class Main {
-	public static void main(String[] args) {
-		
-		Thread t1 = new Thread(new RunLoopThread());
-		
-		t1.start();
-	}
-	
-
-
-}
->>>>>>> 0335000a977c72ee85cf9bdea33bec569ab4bee4
