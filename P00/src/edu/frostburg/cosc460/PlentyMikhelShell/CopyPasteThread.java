@@ -21,7 +21,6 @@ public class CopyPasteThread implements Runnable{
 	@Override
 	public void run() {
 		try {
-			System.out.println("attempting...");
 			sourceArray = Files.readAllBytes(inFile);
 			Files.write(outFile, sourceArray);
 		} catch (IOException e) {

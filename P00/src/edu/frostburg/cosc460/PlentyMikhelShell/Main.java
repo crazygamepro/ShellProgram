@@ -25,12 +25,6 @@ public class Main {
 					shell.mypwd();
 					break;
 					
-				case "mpcp":
-					String[] phrase = input.split("\\s+");
-					shell.mycp(phrase[1], phrase[2]);
-//					input.contains("mpcp");
-					break;
-					
 				case "exit":
 					shell.exit();
 					break;
@@ -40,9 +34,14 @@ public class Main {
 					break;
 				
 				default:
-//					System.out.println("Incorrect input. Try again or enter '?' for more info.");
+					if(input.contains("mpcp")) {
+						String[] phrase = input.split("\\s+");
+						shell.mycp(phrase[1], phrase[2]);
+					}
+					else {
 					Thread t1 = new Thread(new OSCommandThread(input));
 					t1.start();
+					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
