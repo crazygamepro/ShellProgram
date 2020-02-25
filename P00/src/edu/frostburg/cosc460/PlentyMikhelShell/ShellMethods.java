@@ -1,11 +1,15 @@
 package edu.frostburg.cosc460.PlentyMikhelShell;
 
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ShellMethods implements OSShellProject {
 	String dir = System.getProperty("user.dir");
 	
-	Path path;
+	Path path = Paths.get(dir);
 	
 	@Override
 	public void mypwd() {
@@ -15,7 +19,14 @@ public class ShellMethods implements OSShellProject {
 
 	@Override
 	public void myls(String[] args) {
-		
+		try(DirectoryStream<Path> stream = Files.newDirectoryStream(path)){
+			for(Path file: stream) {
+				System.out.println(file.getFileName());
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 		
 

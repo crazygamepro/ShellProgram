@@ -24,7 +24,6 @@ public class CopyPasteThread implements Runnable{
 			sourceArray = Files.readAllBytes(inFile);
 			Files.write(outFile, sourceArray);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
