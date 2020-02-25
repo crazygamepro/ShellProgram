@@ -4,11 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class OSCommand implements Runnable{
+public class OSCommandThread implements Runnable{
 	String input;
 	Process pc;
 	
-	public OSCommand(String input) {
+	public OSCommandThread(String input) {
 		this.input = input;
 	}
 

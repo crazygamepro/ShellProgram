@@ -1,8 +1,11 @@
 package edu.frostburg.cosc460.PlentyMikhelShell;
 
+import java.nio.file.Path;
 
 public class ShellMethods implements OSShellProject {
 	String dir = System.getProperty("user.dir");
+	
+	Path path;
 	
 	@Override
 	public void mypwd() {
@@ -12,14 +15,17 @@ public class ShellMethods implements OSShellProject {
 
 	@Override
 	public void myls(String[] args) {
-		// TODO Auto-generated method stub
 		
 	}
+		
 
 	@Override
 	public boolean mycp(String source, String dest) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println(source);
+		System.out.println(dest);
+		Thread t2 = new Thread(new CopyPasteThread(source, dest));
+		t2.start();
+		return true;
 	}
 
 	@Override
