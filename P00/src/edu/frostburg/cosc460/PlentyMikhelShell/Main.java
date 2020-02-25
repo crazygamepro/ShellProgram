@@ -26,7 +26,6 @@ public class Main {
 					break;
 					
 				case "mpcp":
-					input = "mpcp C:\\Users\\canem\\Documents\\test.txt C:\\Users\\canem\\Documents\\test3.txt";
 					String[] phrase = input.split("\\s+");
 					shell.mycp(phrase[1], phrase[2]);
 //					input.contains("mpcp");
