@@ -24,7 +24,7 @@ public class ShellMethods implements OSShellProject {
 				System.out.println(file.getFileName());
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -59,7 +59,7 @@ public class ShellMethods implements OSShellProject {
 
 	@Override
 	public String myName() {
-		// TODO Auto-generated method stub
+		
 		return "Mikhel Plenty";
 	}
 
