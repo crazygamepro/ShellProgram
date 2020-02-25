@@ -19,10 +19,12 @@ public class ShellMethods implements OSShellProject {
 
 	@Override
 	public void myls(String[] args) {
+		System.out.println("____________\n");
 		try(DirectoryStream<Path> stream = Files.newDirectoryStream(path)){
 			for(Path file: stream) {
 				System.out.println(file.getFileName());
 			}
+			System.out.println("____________");
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -50,10 +52,10 @@ public class ShellMethods implements OSShellProject {
 	public void help() {
 		System.out.println("Hello! This is " + myName());
 		System.out.println("\nCommand List: \n" + 
-		"______________\n\n" +
+		"____________\n\n" +
 		"MPpwd\n" + "MPls \n" + "MPcp S D");
 		System.out.println("Notepad\n" + "Calc\n"  + "Exit\n" +
-		"______________");
+		"____________");
 		
 	}
 
