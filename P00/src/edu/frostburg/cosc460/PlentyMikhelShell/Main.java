@@ -10,7 +10,6 @@ public class Main {
 		ShellMethods shell = new ShellMethods();
 		String input = null;
 		int exit = 0;
-		String[] list = null;
 		
 		while(exit == 0) {
 			System.out.print("PlentySh-" + System.getProperty("user.dir") + ">");
@@ -19,7 +18,7 @@ public class Main {
 				input = input.toLowerCase(); //allows for any case input string
 				switch(input) {
 				case "mpls":
-					shell.myls(list);
+					shell.myls();
 					break;
 				case "mppwd":
 					shell.mypwd();

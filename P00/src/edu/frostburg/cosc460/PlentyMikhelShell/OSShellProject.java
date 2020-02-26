@@ -12,7 +12,7 @@ public interface OSShellProject {
 	void mypwd();
 	
 	/** List current directory */
-	void myls(String[] args);
+	void myls();
 	
 	/** Copy source file to destination.  If there are any problems, return false, otherwise true */
 	boolean mycp(String source, String dest);

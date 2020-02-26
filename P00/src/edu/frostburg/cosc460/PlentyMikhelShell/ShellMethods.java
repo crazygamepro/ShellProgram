@@ -18,7 +18,7 @@ public class ShellMethods implements OSShellProject {
 	}
 
 	@Override
-	public void myls(String[] args) {
+	public void myls() {
 		System.out.println("____________\n");
 		try(DirectoryStream<Path> stream = Files.newDirectoryStream(path)){
 			for(Path file: stream) {
@@ -34,8 +34,6 @@ public class ShellMethods implements OSShellProject {
 
 	@Override
 	public boolean mycp(String source, String dest) {
-		System.out.println(source);
-		System.out.println(dest);
 		Thread t2 = new Thread(new CopyPasteThread(source, dest));
 		t2.start();
 		return true;
