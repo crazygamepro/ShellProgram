@@ -7,9 +7,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class ShellMethods implements OSShellProject {
-	String dir = System.getProperty("user.dir");
+	String dir = System.getProperty("user.dir"); //user.dir saved my life.. gives me the absolute (i think) path
 	
-	Path path = Paths.get(dir);
+	Path path = Paths.get(dir); 
 	
 	@Override
 	public void mypwd() {
@@ -17,6 +17,10 @@ public class ShellMethods implements OSShellProject {
 		
 	}
 
+
+/*	simple list method. Used directorystream to pull all file info
+ * for loop to print out each filename as the stream iterates through the path
+ */
 	@Override
 	public void myls() {
 		System.out.println("____________\n");
@@ -31,14 +35,22 @@ public class ShellMethods implements OSShellProject {
 		}
 	}
 		
-
+/* Hardest method in my opinion. Created a thread to have all copy/pasting on a different thread
+*	Again, not sure if how im implementing it is helpful in any way.
+*/
 	@Override
 	public boolean mycp(String source, String dest) {
 		Thread t2 = new Thread(new CopyPasteThread(source, dest));
 		t2.start();
+		try {
+			t2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 
+//	Self explanatory exit method. Calls system exit
 	@Override
 	public void exit() {
 		System.out.println("The system will exit now.");
@@ -46,6 +58,7 @@ public class ShellMethods implements OSShellProject {
 		
 	}
 
+//	Prints all commands
 	@Override
 	public void help() {
 		System.out.println("Hello! This is " + myName());

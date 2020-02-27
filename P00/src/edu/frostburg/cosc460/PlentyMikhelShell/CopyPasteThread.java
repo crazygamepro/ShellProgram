@@ -9,7 +9,7 @@ public class CopyPasteThread implements Runnable{
 	String source, dest;
 	Path inFile;
 	Path outFile;
-	byte[] sourceArray;
+	byte[] sourceArray; //byte array to move bytes
 	
 	public CopyPasteThread(String source, String dest) {
 		this.source = source;
@@ -20,11 +20,16 @@ public class CopyPasteThread implements Runnable{
 	
 	@Override
 	public void run() {
-		try {
-			sourceArray = Files.readAllBytes(inFile);
-			Files.write(outFile, sourceArray);
-		} catch (IOException e) {
-			e.printStackTrace();
+		if(!Files.exists(outFile)) { //checks if file exists so it doesnt overwrite
+			try {
+				sourceArray = Files.readAllBytes(inFile); //adds bytes from infile to sourcearray
+				Files.write(outFile, sourceArray); //writes all bytes from sourcearray to outfile
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			System.out.println("File already exists. Please try another filename.");
 		}
 	}
 

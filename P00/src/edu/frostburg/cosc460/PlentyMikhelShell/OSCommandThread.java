@@ -16,8 +16,12 @@ public class OSCommandThread implements Runnable{
 		@Override
 		public void run() {
 			try {
-				pc = Runtime.getRuntime().exec(input);
+				pc = Runtime.getRuntime().exec(input); //executes user input as a potential command
 				
+/* Simple buffered reader that gets input from from the process.
+ * My program needs to show the results that are sent from the process
+ * so the bufferedreader captures it and i display it
+ */
 				BufferedReader reader = new BufferedReader(new InputStreamReader(pc.getInputStream()));
 			    String line;
 			    while ((line = reader.readLine()) != null) {
